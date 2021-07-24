@@ -9,7 +9,7 @@ RSpec.describe 'user sees one article' do
       visit articles_path
 
       click_link article_1.title
-
+      
       expect(page).to have_content(article_1.title)
       expect(page).to have_content(article_1.body)
     end
