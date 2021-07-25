@@ -32,6 +32,9 @@ class ArticlesController < ApplicationController
 
     @article = Article.new(article_params) #above method is close but doesnt work bc of rails security. after strong params are added(section after private below)
     @article.save
+
+    flash.notice = "Article '#{@article.title}' Created!'"
+
     redirect_to article_path(@article)
   end
 
@@ -42,6 +45,9 @@ class ArticlesController < ApplicationController
 
     # Article.destroy(params[:id]) #commented out after adding before_action 'set_article'
     @article.destroy
+
+    flash.notice = "Article Deleted!"
+
     redirect_to articles_path
   end
 
