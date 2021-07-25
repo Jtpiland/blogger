@@ -32,7 +32,15 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params) #above method is close but doesnt work bc of rails security. after strong params are added(section after private below)
     @article.save
     redirect_to article_path(@article)
+  end
 
+  def destroy
+    # @article = Article.find(params[:id])
+    # @article.destroy
+    # redirect_to articles_path
+
+    Article.destroy(params[:id])
+    redirect_to articles_path
   end
 
   private
